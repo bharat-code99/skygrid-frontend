@@ -1,5 +1,17 @@
+import { Route, Routes } from "react-router";
+import Dashboard from "./pages/Dashboard";
+import LoginLayout from "./pages/LoginLayout";
+import LoginForm from "./components/login/LoginForm";
+import SignUpForm from "./components/login/SignupForm";
+
 export default function App() {
   return (
-    <div className="text-center font-semibold text-3xl text-blue-950 mt-10">Skygrid - Your personal cloud storage.</div>
+    <Routes>
+      <Route path="/" element={<Dashboard />} />
+      <Route element={<LoginLayout />}>
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<SignUpForm />} />
+      </Route>
+    </Routes>
   );
 }
